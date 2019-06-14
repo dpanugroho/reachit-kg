@@ -37,10 +37,9 @@ def get_product_category():
     ORDER BY  DESC(?type)
     LIMIT 1
     """)
-    print(q)
-    sparql.setQuery(q)
-    query_results = sparql.query().convert()
     try:
+        sparql.setQuery(q)
+        query_results = sparql.query().convert()
         return query_results["results"]["bindings"][0]["type"]["value"]
     except IndexError:
         return abort(404)
