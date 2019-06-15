@@ -17,6 +17,7 @@ sparql.addDefaultGraph('http://localhost:8890/reach-it')
 @app.route('/productcategory/', methods=['GET'])
 def get_product_category():
     product_name = request.args.get('product_name')
+    product_name = product_name.replace('"','')
     print(product_name)
     """Get category of product given product name.
     Args:
